@@ -1,0 +1,13 @@
+FROM debian:stretch
+ARG asterisk=/etc/asterisk/
+RUN apt update && \
+    apt install asterisk asterisk-prompt-es asterisk-core-sounds-es asterisk-core-sounds-es-gsm unixodbc unixodbc-dev \
+    odbc-postgresql -y
+COPY --chown=asterisk:asterisk ["rtp.conf","extensions.conf","sip.conf","$asterisk"]
+COPY --chown=asterisk:asterisk ["odbcinst.ini","odbc.ini","/etc/"]
+RUN odbcinst -q -d
+EXPOSE 5060
+EXPOSE 5060/udp
+EXPOSE 10000-10010
+RUN service asterisk start
+ENTRYPOINT ["asterisk","-cvvv"]

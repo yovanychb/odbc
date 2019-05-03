@@ -1,0 +1,9 @@
+version: "3.6"
+services:
+  asterisk:
+    image: asterisk-odbc:1.0
+    ports:
+      - "5060:5060/udp"
+      - "5060:5060"
+      - "10000-10010:10000-10010"
+    
