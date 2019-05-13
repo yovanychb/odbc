@@ -69,6 +69,9 @@ ALTER TABLE ONLY public.peers_quesitos
 ALTER TABLE ONLY public.extension
     ADD CONSTRAINT id_troncal FOREIGN KEY (id_troncal) REFERENCES public.troncal(id_troncal) ON UPDATE CASCADE ON DELETE CASCADE;
 
+INSERT INTO public.troncal VALUES (1, 'troncal-rancheritos', '1234');
+INSERT INTO public.troncal VALUES (2, 'troncal-toztecas', '345y');
+INSERT INTO public.troncal VALUES (3, 'troncal-quesitos', 'quesitos');
 
 INSERT INTO public.extension VALUES (2001, 2, '2019-01-19 10:23:51');
 INSERT INTO public.extension VALUES (2002, 2, '2019-01-19 09:12:20');
@@ -84,9 +87,3 @@ INSERT INTO public.extension VALUES (7001, 3, '2017-07-09 16:17:45');
 INSERT INTO public.extension VALUES (7002, 3, '2015-01-23 09:12:02');
 
 INSERT INTO public.peers_quesitos VALUES (1, '7001', 'dynamic', 'friend', '123', 'Yovany Chavez', '7001');
-
-INSERT INTO public.troncal VALUES (1, 'troncal-rancheritos', '1234');
-INSERT INTO public.troncal VALUES (2, 'troncal-toztecas', '345y');
-INSERT INTO public.troncal VALUES (3, 'troncal-quesitos', 'quesitos');
-
-
